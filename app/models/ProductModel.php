@@ -1,12 +1,11 @@
 <?php
-// Kế thừa class Model trong thư mục core
-    class HomeModel{
+    class ProductModel{
         protected $_table;
         public function getLists(){
             $data = [
-                "item1"=>"IPhone",
-                "item2"=>"Android",
-                "item3"=>"Xiaomi"
+                "Redmi 10",
+                "Laptop G15-5511",
+                "Keyboard Leaven"
             ];
             // echo "In ra danh sách các sản phẩm";
             return $data;

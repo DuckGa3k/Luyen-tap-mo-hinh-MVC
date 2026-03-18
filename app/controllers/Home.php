@@ -1,8 +1,15 @@
 <?php
-    class Home{
+    class Home extends Controller{
+        private $model;
+        public function __construct()
+        {
+            $this->model = $this->model("HomeModel");
+        }
         public function index()
         {
-           echo "Trang chủ";
+           echo "Trang chủ<br>";
+           $data = $this->model->getLists();
+           print_r($data);
         }
         public function detail($id='',$cat=''){
             //Tham số có giá trị mặc định để tránh lỗi khi $params rỗng
