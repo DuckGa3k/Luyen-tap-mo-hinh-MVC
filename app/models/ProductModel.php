@@ -13,9 +13,9 @@
         }
         public function getProductDetail($product_id){
             $data = [
-                "1"=>"Redmi 10",
-                "2"=>"Laptop G15-5511",
-                "3"=>"Keyboard Leaven"
+                "1"=>["Name"=>"Redmi 10", "Category"=>"Smartphone","Price"=>"3000000"],
+                "2"=>["Name"=>"Laptop G15-5511", "Category"=>"Laptop","Price"=>"12000000"],
+                "3"=>["Name"=>"Keyboard Leaven", "Category"=>"Keyboard","Price"=>"500000"]
             ];
             if(empty($data))
                 return;
