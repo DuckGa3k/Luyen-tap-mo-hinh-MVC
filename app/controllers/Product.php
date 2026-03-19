@@ -1,6 +1,7 @@
 <?php
     class Product extends Controller{
         private $model;
+        private $data=[];
         public function __construct()
         {
             $this->model = $this->model("ProductModel");
@@ -8,9 +9,19 @@
         }
         public function index()
         {
-           echo "Trang chủ";
-           $data = $this->model->getLists();
-           print_r($data);
+           $data = $this->model->getProductList();
+           $this->data["listProduct"] = $data;
+            //    print_r($data);
+            // Render ra View
+            $this->render("product/list", $this->data);
+        }
+        public function detail($id=''){
+            //Tham số có giá trị mặc định để tránh lỗi khi $params rỗng
+            // echo "Mã sản phẩm: " . $id . "<br>";
+            // echo "Loại sản phẩm: " . $cat . "<br>";
+            $data = $this->model->getProductDetail($id);
+            $this->data["detailProduct"] = $data;
+            $this->render("product/detail", $this->data);
         }
         public function search(){
             // Nhờ vào cờ QSA trong htaccess, ta vẫn có thể lấy tham số từ $_GET để xử lý

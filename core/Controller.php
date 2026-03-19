@@ -10,4 +10,12 @@
             $model = new $model_name();
             return $model;
         }
+        public function render($view_path, $data=[]){
+            if(!file_exists(_DIR_ROOT . "/app/views/" . $view_path .".php")){
+                return false;
+            }
+            extract($data); //hàm này biến các key trong mảng thành tên biến có giá trị = value
+            require_once(_DIR_ROOT . "/app/views/" . $view_path .".php");
+        }
     }
+    
