@@ -1,6 +1,6 @@
 <?php
     class Product extends Controller{
-        protected $model;
+        private $model;
         public function __construct()
         {
             $this->model = $this->model("ProductModel");

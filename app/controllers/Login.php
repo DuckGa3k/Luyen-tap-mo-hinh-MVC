@@ -1,5 +1,5 @@
 <?php
-    class Login{
+    class Login extends Controller{
         public function index(){
 
         }
