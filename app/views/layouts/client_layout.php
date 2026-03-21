@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title ?></title>
-    <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/assets/client/css/style.css">
+    <link rel="stylesheet" href="<?php echo _WEB_ROOT; ?>/public/assets/web/css/style.css">
 </head>
 <body>
     <!-- Do file này sẽ được hiển thị trong class Controller nên có thể dùng $this->render() -->
