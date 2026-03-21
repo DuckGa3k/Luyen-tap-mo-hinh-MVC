@@ -1,14 +1,18 @@
 <?php
     class Home extends Controller{
         private $model;
+        private $data;
         public function __construct()
         {
             $this->model = $this->model("HomeModel");
         }
         public function index()
         {
-        //    echo "Trang chủ<br>";
-           $data = $this->model->getLists();
+        //    echo "Trang chủ người dùng<br>";
+           $this->data['content'] = "home/index";
+           $this->data['title'] = "Trang chủ";
+           $this->data['sub_content']['listProduct'] = $this->model->getLists();
+           $this->render("layouts/client_layout",$this->data);
         //    print_r($data);
         }
         public function detail($id='',$cat=''){
