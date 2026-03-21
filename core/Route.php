@@ -9,8 +9,10 @@
             // echo "<pre>";
             // print_r($routes);
             // echo "</pre>";
+            if($url === '/'){
+                return $url;
+            }
             $url = trim($url,"/");
-            // echo $url;
             $handleUrl = $url;
             if(empty($routes)){
                 return;

@@ -49,10 +49,6 @@
                     $this->__module = $urlArray[0];
                     array_shift($urlArray); // Xóa module ra khỏi mảng để index 0 luôn là Controller
                 }
-            }else{
-                echo "File không tồn tại";
-                $this->loadError();
-                return;
             }
             // Xử lý Controller, nếu url có giá trị cho controller thì gán, ngược lại dùng mặc định (ở đây là home)
             if(!empty($urlArray[0])){
