@@ -8,7 +8,10 @@
         function __construct()
         {
             // Cách 1: truy cập biến toàn cầu 
-            global $routes; 
+            global $routes, $config; 
+            // echo "<pre>";
+            // print_r($config);
+            // echo "</pre>";
             $this->__routes = new Route();
             if(!empty($routes['default_controller']))
                 $this->__controller = $routes['default_controller'];

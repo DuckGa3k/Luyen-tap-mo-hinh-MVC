@@ -18,8 +18,34 @@
     // Quy tắc: Thấy thẻ HTML (href, src) -> Dùng _WEB_ROOT
     define("_WEB_ROOT", $web_root);
 
-    require_once("configs/routes.php");
-    require_once("core/Route.php");
-    require_once("core/Controller.php");
-    require_once("app/App.php");
+    // Tự động load toàn bộ file trong thư mục configs (optional)
+    $config_dir = scandir("configs");
+    // print_r($config_dir);
+    foreach($config_dir as $file_name){
+        if($file_name !== '.' && $file_name !== '..' && file_exists('configs/' . $file_name)){
+            require_once('configs/' . $file_name);
+        }
+    }
+    // require_once("configs/database.php"); //load cấu hình cơ sở dữ liệu
+    // require_once("configs/routes.php"); //load quy tắc định tuyến
+    require_once("core/Route.php"); //load xử lú URL để định tuyến
+    require_once("app/App.php"); //load app
+
+    // Kiểm tra đã có cấu hình Database chưa mới thực hiện require
+    if(!empty($config['database'])){
+        $db_config = array_filter($config['database'], function ($value) {
+            return true; //giữ lại các phần tử empty, null, ...
+        });
+        if(!empty($db_config)){
+            // echo "<pre>";
+            // print_r($db_config);
+            // echo "</pre>";
+            require_once("core/Connection.php");
+            require_once("core/Database.php");
+            $database = new Database();
+        }
+        
+    }
+    require_once("core/Controller.php"); //load base Controller
+    require_once("core/Model.php"); //load base Model
     

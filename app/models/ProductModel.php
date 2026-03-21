@@ -1,13 +1,10 @@
 <?php
-    class ProductModel{
-        protected $_table;
+    class ProductModel extends Model{
+        protected $_table = "mat_hang";
         private $data;
         public function getProductList(){
-            $this->data = [
-                "1"=>"Redmi 10",
-                "2"=>"Laptop G15-5511",
-                "3"=>"Keyboard Leaven"
-            ];
+            $sql = "SELECT * FROM  {$this->_table}";
+            $this->data = $this->query($sql,[], true)->fetchAll();
             // echo "In ra danh sách các sản phẩm";
             return $this->data;
         }
