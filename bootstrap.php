@@ -42,7 +42,6 @@
             // echo "</pre>";
             require_once("core/Connection.php");
             require_once("core/Database.php");
-            $database = new Database();
         }
         
     }
